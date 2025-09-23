@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <radialGradient id="bayernGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#dc143c;stop-opacity:1"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Círculo principal -->
+  <circle cx="50" cy="50" r="45" fill="url(#bayernGradient)" stroke="#000080" stroke-width="2"/>
+  
+  <!-- Círculo interior -->
+  <circle cx="50" cy="50" r="35" fill="none" stroke="#ffffff" stroke-width="1"/>
+  
+  <!-- Texto FCB -->
+  <text x="50" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">FC</text>
+  <text x="50" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#ffffff">BAYERN</text>
+  <text x="50" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">M</text>
+  
+  <!-- Estrellas decorativas -->
+  <polygon points="50,15 52,21 58,21 53,25 55,31 50,27 45,31 47,25 42,21 48,21" fill="#ffd700"/>
+</svg>

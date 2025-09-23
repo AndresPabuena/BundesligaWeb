@@ -3,133 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipos de la Bundesliga</title>
+    <meta name="description" content="Descubre los máximos ganadores de la Bundesliga alemana, sus estadios, títulos y logros históricos.">
+    <meta name="keywords" content="Bundesliga, fútbol alemán, Bayern Munich, Borussia Dortmund, equipos alemanes">
+    <meta name="author" content="BundesligaWeb">
+    <meta property="og:title" content="Máximos Ganadores de la Bundesliga">
+    <meta property="og:description" content="Explora la historia de los equipos más exitosos de la Bundesliga alemana">
+    <meta property="og:type" content="website">
+    <title>Máximos Ganadores de la Bundesliga | Historia del Fútbol Alemán</title>
+    
+    <!-- Performance Optimization -->
+    <meta name="theme-color" content="#1a472a">
+    <meta name="color-scheme" content="light dark">
+    
+    <!-- Resource Hints -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="performance.js" as="script">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
+    <header role="banner">
+        <nav role="navigation" aria-label="Navegación principal">
             <ul class="navbar">
-                <li><a href="https://www.bundesliga.com">Inicio</a></li>
-                <li><a href="#https://www.bundesliga.com/es/bundesliga/partidos">Partidos</a></li>
-                <li><a href="https://www.bundesliga.com/es/bundesliga/clasificacion">Clasificacion</a></li>
-                <li><a href="#https://www.bundesliga.com/es/bundesliga/jugador">Jugadores</a></li>
-                <li><a href="https://www.bundesliga.com/es/bundesliga/estadisticas">Estadisticas</a></li>
+                <li><a href="https://www.bundesliga.com" aria-label="Ir a la página de inicio de Bundesliga">Inicio</a></li>
+                <li><a href="https://www.bundesliga.com/es/bundesliga/partidos" aria-label="Ver partidos de la Bundesliga">Partidos</a></li>
+                <li><a href="https://www.bundesliga.com/es/bundesliga/clasificacion" aria-label="Ver clasificación de la Bundesliga">Clasificación</a></li>
+                <li><a href="https://www.bundesliga.com/es/bundesliga/jugador" aria-label="Ver información de jugadores">Jugadores</a></li>
+                <li><a href="https://www.bundesliga.com/es/bundesliga/estadisticas" aria-label="Ver estadísticas de la Bundesliga">Estadísticas</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <h1 align="center">Máximos Ganadores de la Bundesliga</h1>
-        <section class="cards-container">
-            <div class="card">
-                <img src="imagenes/bayern.png" alt="FC Bayern Munich">
-                <h3>FC Bayern Munich</h3>
-                <p><strong>Estadio:</strong> Allianz Arena<br>
-                   <strong>Ligas:</strong> 32 Bundesligas<br>
-                   <strong>Copas Locales:</strong> 20 Copas de Alemania<br>
-                   <strong>Títulos Internacionales:</strong> 6 Champions League</p>
-                <a href="https://fcbayern.com">Detalles</a>
-            </div>
+    <main role="main">
+        <header class="page-header">
+            <h1>Máximos Ganadores de la Bundesliga</h1>
+            <p class="page-subtitle">Descubre la historia de los equipos más exitosos del fútbol alemán</p>
+        </header>
+        
+        <section class="teams-section" aria-label="Equipos de la Bundesliga">
+            <div class="cards-container">
+                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
+                    <div class="card-image">
+                        <img data-src="imagenes/bayern.svg" alt="Escudo del FC Bayern Munich" loading="lazy" itemprop="logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=">
+                    </div>
+                    <div class="card-content">
+                        <h3 itemprop="name">FC Bayern Munich</h3>
+                        <dl class="team-stats">
+                            <dt>Estadio:</dt>
+                            <dd itemprop="location">Allianz Arena</dd>
+                            <dt>Bundesligas:</dt>
+                            <dd>32 títulos</dd>
+                            <dt>Copas de Alemania:</dt>
+                            <dd>20 títulos</dd>
+                            <dt>Champions League:</dt>
+                            <dd>6 títulos</dd>
+                        </dl>
+                        <a href="https://fcbayern.com" class="team-link" aria-label="Visitar sitio web oficial del FC Bayern Munich" target="_blank" rel="noopener">Sitio Oficial</a>
+                    </div>
+                </article>
             
-            <div class="card">
-                <img src="imagenes/nuremberg.png" alt="F.C. Núremberg">
-                <h3>F.C. Núremberg</h3>
-                <p><strong>Estadio:</strong> Max-Morlock-Stadion<br>
-                   <strong>Ligas:</strong> 9 Bundesligas<br>
-                   <strong>Copas Locales:</strong> 4 Copas de Alemania<br>
-                   <strong>Títulos Internacionales:</strong> Ninguno</p>
-                <a href="https://www.fcn.de">Detalles</a>
-            </div>
+                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
+                    <div class="card-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/nuremberg.svg" alt="Escudo del FC Núremberg" loading="lazy" itemprop="logo">
+                    </div>
+                    <div class="card-content">
+                        <h3 itemprop="name">FC Núremberg</h3>
+                        <dl class="team-stats">
+                            <dt>Estadio:</dt>
+                            <dd itemprop="location">Max-Morlock-Stadion</dd>
+                            <dt>Bundesligas:</dt>
+                            <dd>9 títulos</dd>
+                            <dt>Copas de Alemania:</dt>
+                            <dd>4 títulos</dd>
+                            <dt>Títulos Internacionales:</dt>
+                            <dd>Ninguno</dd>
+                        </dl>
+                        <a href="https://www.fcn.de" class="team-link" aria-label="Visitar sitio web oficial del FC Núremberg" target="_blank" rel="noopener">Sitio Oficial</a>
+                    </div>
+                </article>
 
-            <div class="card">
-                <img src="imagenes/dortmund.png" alt="Borussia Dortmund">
-                <h3>Borussia Dortmund</h3>
-                <p><strong>Estadio:</strong> Signal Iduna Park<br>
-                   <strong>Ligas:</strong> 8 Bundesligas<br>
-                   <strong>Copas Locales:</strong> 5 Copas de Alemania<br>
-                   <strong>Títulos Internacionales:</strong> 1 Champions League</p>
-                <a href="https://bvb.de">Detalles</a>
-            </div>
+                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
+                    <div class="card-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/dortmund.svg" alt="Escudo del Borussia Dortmund" loading="lazy" itemprop="logo">
+                    </div>
+                    <div class="card-content">
+                        <h3 itemprop="name">Borussia Dortmund</h3>
+                        <dl class="team-stats">
+                            <dt>Estadio:</dt>
+                            <dd itemprop="location">Signal Iduna Park</dd>
+                            <dt>Bundesligas:</dt>
+                            <dd>8 títulos</dd>
+                            <dt>Copas de Alemania:</dt>
+                            <dd>5 títulos</dd>
+                            <dt>Champions League:</dt>
+                            <dd>1 título</dd>
+                        </dl>
+                        <a href="https://bvb.de" class="team-link" aria-label="Visitar sitio web oficial del Borussia Dortmund" target="_blank" rel="noopener">Sitio Oficial</a>
+                    </div>
+                </article>
 
-            <div class="card">
-                <img src="imagenes/hamburgo.png" alt="Hamburgo S.V.">
-                <h3>Hamburgo S.V.</h3>
-                <p><strong>Estadio:</strong> Volksparkstadion<br>
-                   <strong>Ligas:</strong> 6 Bundesligas<br>
-                   <strong>Copas Locales:</strong> 3 Copas de Alemania<br>
-                   <strong>Títulos Internacionales:</strong> 1 Champions League</p>
-                <a href="https://www.hsv.de">Detalles</a>
-            </div>
+                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
+                    <div class="card-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/hamburgo.svg" alt="Escudo del Hamburgo SV" loading="lazy" itemprop="logo">
+                    </div>
+                    <div class="card-content">
+                        <h3 itemprop="name">Hamburgo SV</h3>
+                        <dl class="team-stats">
+                            <dt>Estadio:</dt>
+                            <dd itemprop="location">Volksparkstadion</dd>
+                            <dt>Bundesligas:</dt>
+                            <dd>6 títulos</dd>
+                            <dt>Copas de Alemania:</dt>
+                            <dd>3 títulos</dd>
+                            <dt>Champions League:</dt>
+                            <dd>1 título</dd>
+                        </dl>
+                        <a href="https://www.hsv.de" class="team-link" aria-label="Visitar sitio web oficial del Hamburgo SV" target="_blank" rel="noopener">Sitio Oficial</a>
+                    </div>
+                </article>
 
-            <div class="card">
-                <img src="imagenes/schalke.png" alt="Schalke 04">
-                <h3>Schalke 04</h3>
-                <p><strong>Estadio:</strong> Veltins-Arena<br>
-                   <strong>Ligas:</strong> 7 Bundesligas (antes de 1963)<br>
-                   <strong>Copas Locales:</strong> 5 Copas de Alemania<br>
-                   <strong>Títulos Internacionales:</strong> 1 Copa UEFA</p>
-                <a href="https://www.schalke04.de">Detalles</a>
-            </div>
+                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
+                    <div class="card-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/schalke.svg" alt="Escudo del Schalke 04" loading="lazy" itemprop="logo">
+                    </div>
+                    <div class="card-content">
+                        <h3 itemprop="name">Schalke 04</h3>
+                        <dl class="team-stats">
+                            <dt>Estadio:</dt>
+                            <dd itemprop="location">Veltins-Arena</dd>
+                            <dt>Bundesligas:</dt>
+                            <dd>7 títulos (pre-1963)</dd>
+                            <dt>Copas de Alemania:</dt>
+                            <dd>5 títulos</dd>
+                            <dt>Copa UEFA:</dt>
+                            <dd>1 título</dd>
+                        </dl>
+                        <a href="https://www.schalke04.de" class="team-link" aria-label="Visitar sitio web oficial del Schalke 04" target="_blank" rel="noopener">Sitio Oficial</a>
+                    </div>
+                </article>
 
-            <!-- Segunda fila de tarjetas -->
+                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
+                    <div class="card-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/stuttgart.svg" alt="Escudo del VfB Stuttgart" loading="lazy" itemprop="logo">
+                    </div>
+                    <div class="card-content">
+                        <h3 itemprop="name">VfB Stuttgart</h3>
+                        <dl class="team-stats">
+                            <dt>Estadio:</dt>
+                            <dd itemprop="location">Mercedes-Benz Arena</dd>
+                            <dt>Bundesligas:</dt>
+                            <dd>5 títulos</dd>
+                            <dt>Copas de Alemania:</dt>
+                            <dd>3 títulos</dd>
+                            <dt>Títulos Internacionales:</dt>
+                            <dd>Ninguno</dd>
+                        </dl>
+                        <a href="https://www.vfb.de" class="team-link" aria-label="Visitar sitio web oficial del VfB Stuttgart" target="_blank" rel="noopener">Sitio Oficial</a>
+                    </div>
+                </article>
 
-            <div class="card">
-                <img src="imagenes/stuttgart.png" alt="VfB Stuttgart">
-                <h3>VfB Stuttgart</h3>
-                <p><strong>Estadio:</strong> Mercedes-Benz Arena<br>
-                   <strong>Ligas:</strong> 5 Bundesligas<br>
-                   <strong>Copas Locales:</strong> 3 Copas de Alemania<br>
-                   <strong>Títulos Internacionales:</strong> Ninguno</p>
-                <a href="https://www.vfb.de">Detalles</a>
-            </div>
+                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
+                    <div class="card-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/gladbach.svg" alt="Escudo del Borussia Mönchengladbach" loading="lazy" itemprop="logo">
+                    </div>
+                    <div class="card-content">
+                        <h3 itemprop="name">Borussia Mönchengladbach</h3>
+                        <dl class="team-stats">
+                            <dt>Estadio:</dt>
+                            <dd itemprop="location">Borussia-Park</dd>
+                            <dt>Bundesligas:</dt>
+                            <dd>5 títulos</dd>
+                            <dt>Copas de Alemania:</dt>
+                            <dd>3 títulos</dd>
+                            <dt>Copas UEFA:</dt>
+                            <dd>2 títulos</dd>
+                        </dl>
+                        <a href="https://www.borussia.de" class="team-link" aria-label="Visitar sitio web oficial del Borussia Mönchengladbach" target="_blank" rel="noopener">Sitio Oficial</a>
+                    </div>
+                </article>
 
-            <div class="card">
-                <img src="imagenes/gladbach.png" alt="Borussia Mönchengladbach">
-                <h3>Borussia Mönchengladbach</h3>
-                <p><strong>Estadio:</strong> Borussia-Park<br>
-                   <strong>Ligas:</strong> 5 Bundesligas<br>
-                   <strong>Copas Locales:</strong> 3 Copas de Alemania<br>
-                   <strong>Títulos Internacionales:</strong> 2 Copas UEFA</p>
-                <a href="https://www.borussia.de">Detalles</a>
-            </div>
+                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
+                    <div class="card-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/bremen.svg" alt="Escudo del SV Werder Bremen" loading="lazy" itemprop="logo">
+                    </div>
+                    <div class="card-content">
+                        <h3 itemprop="name">SV Werder Bremen</h3>
+                        <dl class="team-stats">
+                            <dt>Estadio:</dt>
+                            <dd itemprop="location">Weserstadion</dd>
+                            <dt>Bundesligas:</dt>
+                            <dd>4 títulos</dd>
+                            <dt>Copas de Alemania:</dt>
+                            <dd>6 títulos</dd>
+                            <dt>Copa UEFA:</dt>
+                            <dd>1 título</dd>
+                        </dl>
+                        <a href="https://www.werder.de" class="team-link" aria-label="Visitar sitio web oficial del SV Werder Bremen" target="_blank" rel="noopener">Sitio Oficial</a>
+                    </div>
+                </article>
 
-            <div class="card">
-                <img src="imagenes/bremen.png" alt="SV Werder Bremen">
-                <h3>SV Werder Bremen</h3>
-                <p><strong>Estadio:</strong> Weserstadion<br>
-                   <strong>Ligas:</strong> 4 Bundesligas<br>
-                   <strong>Copas Locales:</strong> 6 Copas de Alemania<br>
-                   <strong>Títulos Internacionales:</strong> 1 Copa UEFA</p>
-                <a href="https://www.werder.de/">Detalles</a>
-            </div>
+                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
+                    <div class="card-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/kaiserslautern.svg" alt="Escudo del FC Kaiserslautern" loading="lazy" itemprop="logo">
+                    </div>
+                    <div class="card-content">
+                        <h3 itemprop="name">FC Kaiserslautern</h3>
+                        <dl class="team-stats">
+                            <dt>Estadio:</dt>
+                            <dd itemprop="location">Fritz-Walter-Stadion</dd>
+                            <dt>Bundesligas:</dt>
+                            <dd>4 títulos</dd>
+                            <dt>Copas de Alemania:</dt>
+                            <dd>2 títulos</dd>
+                            <dt>Títulos Internacionales:</dt>
+                            <dd>Ninguno</dd>
+                        </dl>
+                        <a href="https://fck.de" class="team-link" aria-label="Visitar sitio web oficial del FC Kaiserslautern" target="_blank" rel="noopener">Sitio Oficial</a>
+                    </div>
+                </article>
 
-            <div class="card">
-                <img src="imagenes/kaiserslautern.png" alt="1. FC Kaiserslautern">
-                <h3>1. FC Kaiserslautern</h3>
-                <p><strong>Estadio:</strong> Fritz-Walter-Stadion<br>
-                   <strong>Ligas:</strong> 4 Bundesligas<br>
-                   <strong>Copas Locales:</strong> 2 Copas de Alemania<br>
-                   <strong>Títulos Internacionales:</strong> Ninguno</p>
-                <a href="https://fck.de">Detalles</a>
-            </div>
-
-            <div class="card">
-                <img src="imagenes/colonia.png" alt="FC Colonia">
-                <h3>FC Colonia</h3>
-                <p><strong>Estadio:</strong> RheinEnergieStadion<br>
-                   <strong>Ligas:</strong> 2 Bundesligas<br>
-                   <strong>Copas Locales:</strong> 4 Copas de Alemania<br>
-                   <strong>Títulos Internacionales:</strong> Ninguno</p>
-                <a href="https://fc.de">Detalles</a>
+                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
+                    <div class="card-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/colonia.svg" alt="Escudo del FC Colonia" loading="lazy" itemprop="logo">
+                    </div>
+                    <div class="card-content">
+                        <h3 itemprop="name">FC Colonia</h3>
+                        <dl class="team-stats">
+                            <dt>Estadio:</dt>
+                            <dd itemprop="location">RheinEnergieStadion</dd>
+                            <dt>Bundesligas:</dt>
+                            <dd>2 títulos</dd>
+                            <dt>Copas de Alemania:</dt>
+                            <dd>4 títulos</dd>
+                            <dt>Títulos Internacionales:</dt>
+                            <dd>Ninguno</dd>
+                        </dl>
+                        <a href="https://fc.de" class="team-link" aria-label="Visitar sitio web oficial del FC Colonia" target="_blank" rel="noopener">Sitio Oficial</a>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>Redes Sociales</p>
-        <div class="social-links">
-            <a href=https://github.com/AndreasNiketas">Github</a>
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <p>&copy; 2024 BundesligaWeb. Información sobre los equipos históricos de la Bundesliga alemana.</p>
+            <div class="social-links">
+                <h4>Síguenos</h4>
+                <a href="https://github.com/AndreasNiketas" aria-label="Visitar perfil de GitHub" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
         </div>
     </footer>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="performance.js"></script>
 </body>
 </html>
