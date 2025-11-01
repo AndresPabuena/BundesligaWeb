@@ -1,271 +1,672 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descubre los máximos ganadores de la Bundesliga alemana, sus estadios, títulos y logros históricos.">
-    <meta name="keywords" content="Bundesliga, fútbol alemán, Bayern Munich, Borussia Dortmund, equipos alemanes">
-    <meta name="author" content="BundesligaWeb">
-    <meta property="og:title" content="Máximos Ganadores de la Bundesliga">
-    <meta property="og:description" content="Explora la historia de los equipos más exitosos de la Bundesliga alemana">
-    <meta property="og:type" content="website">
-    <title>Máximos Ganadores de la Bundesliga | Historia del Fútbol Alemán</title>
-    
-    <!-- Performance Optimization -->
-    <meta name="theme-color" content="#1a472a">
-    <meta name="color-scheme" content="light dark">
-    
-    <!-- Resource Hints -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="script.js" as="script">
-    <link rel="preload" href="performance.js" as="script">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Para Isa ❤️</title>
+<style>
+  :root{
+    --bg: linear-gradient(135deg,#fff0f6,#ffe6f0,#fff7ec);
+    --bubble1: linear-gradient(180deg,#ffd6e0,#ffb3cc);
+    --bubble2: linear-gradient(180deg,#e6f7ff,#ccefff);
+    --text: #222;
+    --muted: #555;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  html,body{
+    min-height:100%;
+    font-family:Inter, "Segoe UI", Roboto, Arial; 
+    background: var(--bg);
+    color:var(--text);
+    overflow-x: hidden;
+  }
+  
+  /* Sección de diálogo */
+  .dialog-section{
+    max-width:720px;
+    margin:40px auto;
+    padding:24px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .card{
+    background:rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 10px 40px rgba(255,105,180,0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+  }
+  
+  h1{
+    font-size:22px;
+    margin:0 0 12px;
+    background: linear-gradient(90deg, #ff6b9d, #c471ed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .chat{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    padding:8px 0;
+    min-height: 200px;
+  }
+  
+  .bubble{
+    max-width:75%;
+    padding:12px 16px;
+    border-radius:14px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    transform-origin:left center;
+    opacity:0; 
+    transform: translateY(20px) scale(.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    position: relative;
+  }
+  
+  .bubble::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.4), transparent);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .bubble:hover::before {
+    opacity: 1;
+  }
+  
+  .p1{
+    align-self:flex-start;
+    background:var(--bubble1);
+    color:#3b0a20;
+    border-bottom-left-radius:4px;
+    animation: slideInLeft 0.6s ease;
+  }
+  
+  .p2{
+    align-self:flex-end;
+    background:var(--bubble2);
+    color:#00374d;
+    border-bottom-right-radius:4px;
+    animation: slideInRight 0.6s ease;
+  }
+  
+  @keyframes slideInLeft {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes slideInRight {
+    from { transform: translateX(30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  .meta{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:6px;
+    text-align:center;
+    animation: fadeIn 2s ease;
+  }
+  
+  .controls{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    margin-top:14px;
+    flex-wrap: wrap;
+  }
+  
+  button{
+    padding:12px 18px;
+    border-radius:12px;
+    border: none;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    font-size: 14px;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  
+  button:active {
+    transform: translateY(0);
+  }
+  
+  .play{
+    background:linear-gradient(90deg,#ff8fab,#ff6f9c);
+    color:white;
+  }
+  
+  .reset{
+    background:rgba(255,255,255,0.8);
+    border:1px solid #ddd;
+    color:var(--text);
+  }
+  
+  .music-btn{
+    background:linear-gradient(90deg,#a18cd1,#fbc2eb);
+    color:white;
+  }
+  
+  .heart {
+    display:inline-block; 
+    margin-left:8px; 
+    transform-origin:center;
+    transition: transform .25s ease;
+  }
+  
+  .heart.beat { 
+    animation: heartBeat 0.5s ease;
+  }
+  
+  @keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.3); }
+    50% { transform: scale(1.1); }
+    75% { transform: scale(1.25); }
+  }
+  
+  /* Sección de carta completa */
+  .letter-section{
+    display: none;
+    max-width: 850px;
+    margin: 40px auto 60px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+    padding: 60px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    border: 1px solid rgba(255,255,255,0.5);
+    position: relative;
+    z-index: 10;
+  }
+  
+  .letter-section.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .letter-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    animation: pulse 3s infinite;
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  .section {
+    margin-bottom: 30px;
+    line-height: 1.9;
+    color: #333;
+    font-size: 1.1em;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .section.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .question {
+    color: #667eea;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 20px 0 10px 0;
+  }
+  
+  .answer {
+    color: #764ba2;
+    font-weight: bold;
+    font-style: italic;
+    margin: 15px 0;
+    padding: 18px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+    border-left: 4px solid #667eea;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+  }
+  
+  .signature {
+    text-align: right;
+    margin-top: 40px;
+    font-style: italic;
+    color: #764ba2;
+    font-size: 1.3em;
+    animation: fadeIn 1s ease;
+  }
+  
+  .closing {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.1em;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    animation: fadeIn 1s ease;
+  }
+  
+  /* Corazones flotantes mejorados */
+  .hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    display: none;
+  }
+  
+  .hearts.active { display: block; }
+  
+  .floating-heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 105, 180, 0.4);
+    transform: rotate(45deg);
+    animation: float 15s infinite;
+    filter: blur(0.5px);
+  }
+  
+  .floating-heart:before,
+  .floating-heart:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 105, 180, 0.4);
+    border-radius: 50%;
+  }
+  
+  .floating-heart:before {
+    top: -10px;
+    left: 0;
+  }
+  
+  .floating-heart:after {
+    left: 10px;
+    top: 0;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) rotate(45deg) scale(0.5);
+      opacity: 0;
+    }
+    10% { opacity: 0.8; }
+    50% { transform: translateY(50vh) rotate(45deg) scale(1); }
+    90% { opacity: 0.8; }
+    100% {
+      transform: translateY(-100px) rotate(45deg) scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  /* Partículas brillantes */
+  .sparkles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    display: none;
+  }
+  
+  .sparkles.active { display: block; }
+  
+  .sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+    animation: sparkle 3s infinite;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { 
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Efecto de escritura */
+  .typing {
+    overflow: hidden;
+    border-right: 2px solid #764ba2;
+    white-space: nowrap;
+    animation: typing 2s steps(40, end), blink 0.75s step-end infinite;
+    display: inline-block;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #764ba2; }
+  }
+  
+  footer{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:12px;
+    text-align:center;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .dialog-section, .letter-section {
+      padding: 20px;
+      margin: 20px;
+    }
+    .letter-title { font-size: 2em; }
+    .section { font-size: 1em; }
+    h1 { font-size: 18px; }
+  }
+</style>
 </head>
 <body>
-    <header role="banner">
-        <nav role="navigation" aria-label="Navegación principal">
-            <ul class="navbar">
-                <li><a href="https://www.bundesliga.com" aria-label="Ir a la página de inicio de Bundesliga">Inicio</a></li>
-                <li><a href="https://www.bundesliga.com/es/bundesliga/partidos" aria-label="Ver partidos de la Bundesliga">Partidos</a></li>
-                <li><a href="https://www.bundesliga.com/es/bundesliga/clasificacion" aria-label="Ver clasificación de la Bundesliga">Clasificación</a></li>
-                <li><a href="https://www.bundesliga.com/es/bundesliga/jugador" aria-label="Ver información de jugadores">Jugadores</a></li>
-                <li><a href="https://www.bundesliga.com/es/bundesliga/estadisticas" aria-label="Ver estadísticas de la Bundesliga">Estadísticas</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main role="main">
-        <header class="page-header">
-            <h1>Máximos Ganadores de la Bundesliga</h1>
-            <p class="page-subtitle">Descubre la historia de los equipos más exitosos del fútbol alemán</p>
-        </header>
-        
-        <section class="teams-section" aria-label="Equipos de la Bundesliga">
-            <div class="cards-container">
-                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
-                    <div class="card-image">
-                        <img data-src="imagenes/bayern.svg" alt="Escudo del FC Bayern Munich" loading="lazy" itemprop="logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=">
-                    </div>
-                    <div class="card-content">
-                        <h3 itemprop="name">FC Bayern Munich</h3>
-                        <dl class="team-stats">
-                            <dt>Estadio:</dt>
-                            <dd itemprop="location">Allianz Arena</dd>
-                            <dt>Bundesligas:</dt>
-                            <dd>32 títulos</dd>
-                            <dt>Copas de Alemania:</dt>
-                            <dd>20 títulos</dd>
-                            <dt>Champions League:</dt>
-                            <dd>6 títulos</dd>
-                        </dl>
-                        <a href="https://fcbayern.com" class="team-link" aria-label="Visitar sitio web oficial del FC Bayern Munich" target="_blank" rel="noopener">Sitio Oficial</a>
-                    </div>
-                </article>
-            
-                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/nuremberg.svg" alt="Escudo del FC Núremberg" loading="lazy" itemprop="logo">
-                    </div>
-                    <div class="card-content">
-                        <h3 itemprop="name">FC Núremberg</h3>
-                        <dl class="team-stats">
-                            <dt>Estadio:</dt>
-                            <dd itemprop="location">Max-Morlock-Stadion</dd>
-                            <dt>Bundesligas:</dt>
-                            <dd>9 títulos</dd>
-                            <dt>Copas de Alemania:</dt>
-                            <dd>4 títulos</dd>
-                            <dt>Títulos Internacionales:</dt>
-                            <dd>Ninguno</dd>
-                        </dl>
-                        <a href="https://www.fcn.de" class="team-link" aria-label="Visitar sitio web oficial del FC Núremberg" target="_blank" rel="noopener">Sitio Oficial</a>
-                    </div>
-                </article>
+  <div class="hearts" id="hearts"></div>
+  <div class="sparkles" id="sparkles"></div>
+  
+  <div class="dialog-section" id="dialogSection">
+    <div class="card">
+      <h1>Un diálogo programa-romántico 💻❤️</h1>
 
-                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/dortmund.svg" alt="Escudo del Borussia Dortmund" loading="lazy" itemprop="logo">
-                    </div>
-                    <div class="card-content">
-                        <h3 itemprop="name">Borussia Dortmund</h3>
-                        <dl class="team-stats">
-                            <dt>Estadio:</dt>
-                            <dd itemprop="location">Signal Iduna Park</dd>
-                            <dt>Bundesligas:</dt>
-                            <dd>8 títulos</dd>
-                            <dt>Copas de Alemania:</dt>
-                            <dd>5 títulos</dd>
-                            <dt>Champions League:</dt>
-                            <dd>1 título</dd>
-                        </dl>
-                        <a href="https://bvb.de" class="team-link" aria-label="Visitar sitio web oficial del Borussia Dortmund" target="_blank" rel="noopener">Sitio Oficial</a>
-                    </div>
-                </article>
+      <div id="chat" class="chat" aria-live="polite" aria-atomic="true"></div>
 
-                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/hamburgo.svg" alt="Escudo del Hamburgo SV" loading="lazy" itemprop="logo">
-                    </div>
-                    <div class="card-content">
-                        <h3 itemprop="name">Hamburgo SV</h3>
-                        <dl class="team-stats">
-                            <dt>Estadio:</dt>
-                            <dd itemprop="location">Volksparkstadion</dd>
-                            <dt>Bundesligas:</dt>
-                            <dd>6 títulos</dd>
-                            <dt>Copas de Alemania:</dt>
-                            <dd>3 títulos</dd>
-                            <dt>Champions League:</dt>
-                            <dd>1 título</dd>
-                        </dl>
-                        <a href="https://www.hsv.de" class="team-link" aria-label="Visitar sitio web oficial del Hamburgo SV" target="_blank" rel="noopener">Sitio Oficial</a>
-                    </div>
-                </article>
+      <div class="controls">
+        <button id="play" class="play">▶️ Reproducir conversación</button>
+        <button id="reset" class="reset">🔄 Reiniciar</button>
+        <button id="musicBtn" class="music-btn">🎵 Música</button>
+      </div>
 
-                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/schalke.svg" alt="Escudo del Schalke 04" loading="lazy" itemprop="logo">
-                    </div>
-                    <div class="card-content">
-                        <h3 itemprop="name">Schalke 04</h3>
-                        <dl class="team-stats">
-                            <dt>Estadio:</dt>
-                            <dd itemprop="location">Veltins-Arena</dd>
-                            <dt>Bundesligas:</dt>
-                            <dd>7 títulos (pre-1963)</dd>
-                            <dt>Copas de Alemania:</dt>
-                            <dd>5 títulos</dd>
-                            <dt>Copa UEFA:</dt>
-                            <dd>1 título</dd>
-                        </dl>
-                        <a href="https://www.schalke04.de" class="team-link" aria-label="Visitar sitio web oficial del Schalke 04" target="_blank" rel="noopener">Sitio Oficial</a>
-                    </div>
-                </article>
-
-                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/stuttgart.svg" alt="Escudo del VfB Stuttgart" loading="lazy" itemprop="logo">
-                    </div>
-                    <div class="card-content">
-                        <h3 itemprop="name">VfB Stuttgart</h3>
-                        <dl class="team-stats">
-                            <dt>Estadio:</dt>
-                            <dd itemprop="location">Mercedes-Benz Arena</dd>
-                            <dt>Bundesligas:</dt>
-                            <dd>5 títulos</dd>
-                            <dt>Copas de Alemania:</dt>
-                            <dd>3 títulos</dd>
-                            <dt>Títulos Internacionales:</dt>
-                            <dd>Ninguno</dd>
-                        </dl>
-                        <a href="https://www.vfb.de" class="team-link" aria-label="Visitar sitio web oficial del VfB Stuttgart" target="_blank" rel="noopener">Sitio Oficial</a>
-                    </div>
-                </article>
-
-                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/gladbach.svg" alt="Escudo del Borussia Mönchengladbach" loading="lazy" itemprop="logo">
-                    </div>
-                    <div class="card-content">
-                        <h3 itemprop="name">Borussia Mönchengladbach</h3>
-                        <dl class="team-stats">
-                            <dt>Estadio:</dt>
-                            <dd itemprop="location">Borussia-Park</dd>
-                            <dt>Bundesligas:</dt>
-                            <dd>5 títulos</dd>
-                            <dt>Copas de Alemania:</dt>
-                            <dd>3 títulos</dd>
-                            <dt>Copas UEFA:</dt>
-                            <dd>2 títulos</dd>
-                        </dl>
-                        <a href="https://www.borussia.de" class="team-link" aria-label="Visitar sitio web oficial del Borussia Mönchengladbach" target="_blank" rel="noopener">Sitio Oficial</a>
-                    </div>
-                </article>
-
-                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/bremen.svg" alt="Escudo del SV Werder Bremen" loading="lazy" itemprop="logo">
-                    </div>
-                    <div class="card-content">
-                        <h3 itemprop="name">SV Werder Bremen</h3>
-                        <dl class="team-stats">
-                            <dt>Estadio:</dt>
-                            <dd itemprop="location">Weserstadion</dd>
-                            <dt>Bundesligas:</dt>
-                            <dd>4 títulos</dd>
-                            <dt>Copas de Alemania:</dt>
-                            <dd>6 títulos</dd>
-                            <dt>Copa UEFA:</dt>
-                            <dd>1 título</dd>
-                        </dl>
-                        <a href="https://www.werder.de" class="team-link" aria-label="Visitar sitio web oficial del SV Werder Bremen" target="_blank" rel="noopener">Sitio Oficial</a>
-                    </div>
-                </article>
-
-                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/kaiserslautern.svg" alt="Escudo del FC Kaiserslautern" loading="lazy" itemprop="logo">
-                    </div>
-                    <div class="card-content">
-                        <h3 itemprop="name">FC Kaiserslautern</h3>
-                        <dl class="team-stats">
-                            <dt>Estadio:</dt>
-                            <dd itemprop="location">Fritz-Walter-Stadion</dd>
-                            <dt>Bundesligas:</dt>
-                            <dd>4 títulos</dd>
-                            <dt>Copas de Alemania:</dt>
-                            <dd>2 títulos</dd>
-                            <dt>Títulos Internacionales:</dt>
-                            <dd>Ninguno</dd>
-                        </dl>
-                        <a href="https://fck.de" class="team-link" aria-label="Visitar sitio web oficial del FC Kaiserslautern" target="_blank" rel="noopener">Sitio Oficial</a>
-                    </div>
-                </article>
-
-                <article class="card" itemscope itemtype="https://schema.org/SportsTeam" tabindex="0" role="button">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DYXJnYW5kby4uLjwvdGV4dD48L3N2Zz4=" data-src="imagenes/colonia.svg" alt="Escudo del FC Colonia" loading="lazy" itemprop="logo">
-                    </div>
-                    <div class="card-content">
-                        <h3 itemprop="name">FC Colonia</h3>
-                        <dl class="team-stats">
-                            <dt>Estadio:</dt>
-                            <dd itemprop="location">RheinEnergieStadion</dd>
-                            <dt>Bundesligas:</dt>
-                            <dd>2 títulos</dd>
-                            <dt>Copas de Alemania:</dt>
-                            <dd>4 títulos</dd>
-                            <dt>Títulos Internacionales:</dt>
-                            <dd>Ninguno</dd>
-                        </dl>
-                        <a href="https://fc.de" class="team-link" aria-label="Visitar sitio web oficial del FC Colonia" target="_blank" rel="noopener">Sitio Oficial</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <footer role="contentinfo">
-        <div class="footer-content">
-            <p>&copy; 2024 BundesligaWeb. Información sobre los equipos históricos de la Bundesliga alemana.</p>
-            <div class="social-links">
-                <h4>Síguenos</h4>
-                <a href="https://github.com/AndreasNiketas" aria-label="Visitar perfil de GitHub" target="_blank" rel="noopener">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    GitHub
-                </a>
-            </div>
-        </div>
-    </footer>
+      <div class="meta">Haz click en <strong>Reproducir conversación</strong> para ver el diálogo con animación.</div>
+      <footer>Frase final inspirada en Albert Einstein — un toque humorístico para rematar el "te amo".</footer>
+    </div>
+  </div>
+  
+  <div class="letter-section" id="letterSection">
+    <h1 class="letter-title">❤️ Para Isa ❤️</h1>
     
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-    <script src="performance.js"></script>
+    <div class="section" data-delay="0">
+      <p>Porque sé que lo que siento por ti a veces no es normal, no es algo que pueda poner en unas simples palabras, porque no es normal que cada que vea un mensaje tuyo se me baje la presión. Literal cuando estaba en el trabajo y llegaba un mensaje tuyo sentía que se me bajaba la sangre de la cara y ponía una sonrisa de idiota.</p>
+    </div>
+
+    <div class="section" data-delay="200">
+      <p>Porque cada momento que lograba hablar contigo, si mi día estaba un 7/10, después de hablar contigo sentía no sé qué, todo era 10/10. Aunque nuestras conversaciones no duraran más de 1 hora, se me hacía agua en las manos.</p>
+    </div>
+
+    <div class="section" data-delay="400">
+      <p>A veces me siento mal porque cuando hablamos siento que nunca me alcanza el tiempo para querer todo lo que quiero hablar contigo, porque el tiempo contigo se me escapa muy rápido. No hay día que no piense en ti, que me cree mis cuentos imaginarios cuando voy en el bus de un futuro lejano contigo, porque aunque no podamos estar lo cerca que queremos estar ahora, yo quiero luchar por un futuro contigo para cumplir las cosas que planeamos hacer juntos cuando podamos cerrar esta brecha que tenemos ahora.</p>
+    </div>
+
+    <div class="section" data-delay="600">
+      <p>Y hablando sobre la llamada de hoy, ufff, no sé si soy malo en las llamadas o qué. Cuando estoy en llamada contigo se me cierran las ideas, simplemente no cuajan ideas cuando estoy en llamada contigo. A veces me da miedo que pienses que no quiero hablar contigo, es solo que no sé, me cierro, y que también que me pillen hablando contigo. Y para rematar yo voy a salir con tremenda estupidez y decirte que vi una vieja en toalla, si valgo vrg yo.</p>
+    </div>
+
+    <div class="section" data-delay="800">
+      <p>Pero como dijo el viejo Albert, creo que soy demasiado estúpido y tanta confianza tengo contigo que suelto cosas sin pensar bien a veces, porque así me siento contigo, con una confianza que puedo contarte todo como mi amiga, mi novia, mi hermana, porque para mí tú eres todo.</p>
+      <p class="answer">Te amo mucho Isa, nunca lo olvides.</p>
+    </div>
+
+    <div class="closing">
+      <p><strong>Ahora tienes una gran oportunidad, estás en una gran competencia.</strong> Aunque no te emocione tanto como me dijiste, espero que lo disfrutes. Siempre te estaré apoyando y te deseo lo mejor, porque yo sé que tú eres grande, tú estás hecha para grandes cosas.</p>
+      <p style="margin-top: 20px;"><strong>✨ Que tengas un gran día mañana ✨</strong></p>
+    </div>
+            <div class="final-message" id="finalMessage" style="
+      text-align: center;
+      margin-top: 60px;
+      font-size: 1.3em;
+      color: #4b0082;
+      font-weight: 500;
+      line-height: 1.8;
+      animation: fadeIn 2s ease forwards;
+      display: none;
+    ">
+      <span class="typing" id="typingText">
+        Y como diría Albert Einstein, el amor puede que no sea una fórmula exacta,<br>
+        pero si mi estupidez es infinita, entonces mi amor por ti también lo es. 💫<br><br>
+        Gracias por existir, Isa. ❤️
+      </span>
+    </div>
+
+    <div class="signature">
+      <p>Con cariño y amor,</p>
+      <p style="font-size: 1.4em; margin-top: 10px;">Andrés 💕</p>
+    </div>
+
+  </div>
+
+  
+
+  
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_d1718f5d91.mp3" type="audio/mpeg">
+  </audio>
+
+<script>
+  const lines = [
+    {who: "p1", text: "P1: Te amo ❤️"},
+    {who: "p1", text: "P1: ¿Lo entiendes? Te amo."},
+    {who: "p2", text: "P2: ¿Hasta dónde?"},
+    {who: "p1", text: "P1: Albert Einstein decía que la estupidez humana era infinita, así que te amo hasta donde mi estupidez llegue."}
+  ];
+
+  const chat = document.getElementById('chat');
+  const play = document.getElementById('play');
+  const resetBtn = document.getElementById('reset');
+  const musicBtn = document.getElementById('musicBtn');
+  const dialogSection = document.getElementById('dialogSection');
+  const letterSection = document.getElementById('letterSection');
+  const heartsContainer = document.getElementById('hearts');
+  const sparklesContainer = document.getElementById('sparkles');
+  const bgMusic = document.getElementById('bgMusic');
+  
+  let musicPlaying = false;
+
+  function makeBubble(line){
+    const div = document.createElement('div');
+    div.className = 'bubble ' + (line.who === 'p1' ? 'p1' : 'p2');
+    div.innerText = line.text;
+    return div;
+  }
+
+  function createFloatingHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'floating-heart';
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.animationDuration = (Math.random() * 10 + 12) + 's';
+    heart.style.animationDelay = Math.random() * 5 + 's';
+    const size = Math.random() * 15 + 15;
+    heart.style.width = size + 'px';
+    heart.style.height = size + 'px';
+    heartsContainer.appendChild(heart);
+    
+    setTimeout(() => {
+      heart.remove();
+    }, 25000);
+  }
+  
+  function createSparkle() {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.style.left = Math.random() * 100 + '%';
+    sparkle.style.top = Math.random() * 100 + '%';
+    sparkle.style.animationDelay = Math.random() * 3 + 's';
+    sparklesContainer.appendChild(sparkle);
+    
+    setTimeout(() => {
+      sparkle.remove();
+    }, 3000);
+  }
+
+  function startHearts() {
+    heartsContainer.classList.add('active');
+    sparklesContainer.classList.add('active');
+    
+    for (let i = 0; i < 20; i++) {
+      createFloatingHeart();
+    }
+    
+    for (let i = 0; i < 30; i++) {
+      setTimeout(() => createSparkle(), i * 100);
+    }
+    
+    setInterval(createFloatingHeart, 2000);
+    setInterval(createSparkle, 500);
+  }
+
+  function showLetterSection() {
+    letterSection.style.display = 'block';
+    setTimeout(() => {
+      letterSection.classList.add('show');
+      letterSection.scrollIntoView({behavior:'smooth', block:'start'});
+      
+      // Animar las secciones una por una
+      const sections = letterSection.querySelectorAll('.section');
+      sections.forEach((section, index) => {
+        setTimeout(() => {
+          section.classList.add('visible');
+        }, 300 + (index * 200));
+      });
+    }, 100);
+    startHearts();
+  }
+
+  function animateConversation(){
+    chat.innerHTML = '';
+    play.disabled = true;
+    let delay = 0;
+    
+    lines.forEach((line, i) => {
+      delay += 1200;
+      setTimeout(() => {
+        const bubble = makeBubble(line);
+        chat.appendChild(bubble);
+        
+        requestAnimationFrame(() => {
+          bubble.style.opacity = '1';
+          bubble.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        if(i === lines.length - 1){
+          const heart = document.createElement('span');
+          heart.className = 'heart';
+          heart.textContent = ' 💘';
+          bubble.appendChild(heart);
+          
+          setTimeout(()=> heart.classList.add('beat'), 300);
+          setTimeout(()=> heart.classList.remove('beat'), 800);
+          
+          setTimeout(() => {
+            showLetterSection();
+            play.disabled = false;
+          }, 2500);
+        }
+        
+        setTimeout(()=> bubble.scrollIntoView({behavior:'smooth', block:'end'}), 50);
+      }, delay);
+    });
+  }
+
+  play.addEventListener('click', animateConversation);
+  
+  resetBtn.addEventListener('click', () => {
+    chat.innerHTML = '';
+    letterSection.style.display = 'none';
+    letterSection.classList.remove('show');
+    heartsContainer.classList.remove('active');
+    sparklesContainer.classList.remove('active');
+    heartsContainer.innerHTML = '';
+    sparklesContainer.innerHTML = '';
+    
+    const sections = letterSection.querySelectorAll('.section');
+    sections.forEach(section => section.classList.remove('visible'));
+    
+    const first = makeBubble(lines[0]);
+    first.style.opacity = '1'; 
+    first.style.transform = 'translateY(0) scale(1)';
+    chat.appendChild(first);
+    
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+  
+  musicBtn.addEventListener('click', () => {
+    if(musicPlaying) {
+      bgMusic.pause();
+      musicBtn.textContent = '🎵 Música';
+      musicPlaying = false;
+    } else {
+      bgMusic.play().catch(e => console.log('Audio play failed:', e));
+      musicBtn.textContent = '🔇 Pausar';
+      musicPlaying = true;
+    }
+  });
+
+  window.addEventListener('load', () => {
+    const first = makeBubble(lines[0]);
+    first.style.opacity = '1'; 
+    first.style.transform = 'translateY(0) scale(1)';
+    chat.appendChild(first);
+  });
+
+        // Mostrar mensaje final después de 8 segundos
+      setTimeout(() => {
+        const finalMsg = document.getElementById('finalMessage');
+        finalMsg.style.display = 'block';
+        finalMsg.scrollIntoView({behavior:'smooth', block:'end'});
+      }, 8000);
+
+</script>
 </body>
 </html>
